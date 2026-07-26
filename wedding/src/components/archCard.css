@@ -1,0 +1,50 @@
+/* ============================================================
+   ArchCard — Pointed-arch (mihrab-shape) card frame
+   ============================================================ */
+.arch-card {
+  position: relative;
+  background: var(--bg-cream);
+  border-radius: var(--card-radius, 28px);
+  box-shadow: var(--card-shadow);
+  padding: var(--card-padding, 40px 32px);
+  width: 100%;
+  scroll-snap-align: start;
+  overflow: hidden;
+}
+
+/* SVG arch overlay */
+.arch-card__frame {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.arch-card__frame svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Content sits above the frame background but below the SVG stroke */
+.arch-card__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+/* Gold flourish at the arch peak */
+.arch-card__flourish {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.arch-card__flourish svg {
+  width: clamp(48px, 10vw, 72px);
+  height: auto;
+  color: var(--gold-line);
+}

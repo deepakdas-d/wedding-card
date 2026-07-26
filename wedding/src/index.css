@@ -1,0 +1,249 @@
+/* ============================================================
+   Wedding Invitation — Design System & Global Styles
+   ============================================================ */
+
+/* --- Color Tokens --- */
+:root {
+  --bg-cream: #F5EAD9;
+  --bg-blush: #F1D7D6;
+  --maroon-deep: #6B1626;
+  --maroon-accent: #8B2635;
+  --gold-line: #B9945B;
+  --text-body: #4A3527;
+  --floral-red: #7A1F2B;
+  --floral-red-light: #931F35;
+  --pampas-cream: #E8DFC8;
+  --input-bg: #E8E3D3;
+  --cta-red: #A32638;
+
+  /* Typography */
+  --font-display: 'Playfair Display', 'Georgia', serif;
+  --font-body: 'EB Garamond', 'Georgia', serif;
+  --font-heading: 'Cormorant Garamond', 'Georgia', serif;
+
+  /* Spacing */
+  --card-radius: 28px;
+  --card-gap: 20px;
+  --card-max-width: 460px;
+  --card-padding: 40px 32px;
+
+  /* z-index scale */
+  --z-bg: 0;
+  --z-content: 10;
+  --z-petals: 20;
+  --z-onboarding: 50;
+
+  /* Shadows */
+  --card-shadow: 0 4px 24px rgba(74, 53, 39, 0.10), 0 1px 6px rgba(74, 53, 39, 0.06);
+}
+
+/* --- Global Resets --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-cream);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1rem + 0.2vw, 18px);
+  line-height: 1.65;
+  font-style: italic;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* --- Typography --- */
+
+/* Display italic serif — couple names, large headline */
+.display-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--maroon-deep);
+  font-size: clamp(32px, 6vw + 1rem, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+/* Small-caps labels — section headers */
+.label-text {
+  font-family: var(--font-heading);
+  font-style: normal;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: clamp(11px, 0.7rem + 0.15vw, 13px);
+  color: var(--maroon-accent);
+  line-height: 1.4;
+}
+
+/* Body italic serif — tagline, quotes, story */
+.body-text {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text-body);
+  font-size: clamp(16px, 1rem + 0.2vw, 18px);
+  line-height: 1.65;
+}
+
+/* Countdown numerals */
+.numeral-text {
+  font-family: var(--font-heading);
+  font-style: normal;
+  font-weight: 600;
+  color: var(--maroon-accent);
+  font-size: clamp(28px, 4vw + 0.5rem, 36px);
+  line-height: 1.1;
+}
+
+/* Ampersand special styling */
+.ampersand {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold-line);
+  letter-spacing: 0.15em;
+  display: inline-block;
+  padding: 0 0.15em;
+  font-size: 0.75em;
+}
+
+/* --- Links & Buttons --- */
+a {
+  color: var(--maroon-accent);
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-heading);
+  border: none;
+  outline: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--gold-line);
+  outline-offset: 2px;
+}
+
+/* --- Form Inputs --- */
+input,
+select,
+textarea {
+  font-family: var(--font-body);
+  font-size: 16px; /* Prevents iOS auto-zoom */
+  font-style: italic;
+  color: var(--text-body);
+  background: var(--input-bg);
+  border: none;
+  border-radius: 12px;
+  padding: 14px 18px;
+  width: 100%;
+  min-height: 44px;
+  transition: box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  box-shadow: 0 0 0 2px var(--gold-line);
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(74, 53, 39, 0.45);
+  font-style: italic;
+}
+
+/* --- Utility --- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- Scroll Snap Container --- */
+.card-sequence {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--card-gap);
+  width: 100%;
+  max-width: var(--card-max-width);
+  padding: 0 16px;
+  position: relative;
+  z-index: var(--z-content);
+  scroll-snap-type: y proximity;
+  padding-bottom: 40px;
+}
+
+/* --- Divider ornament --- */
+.diamond-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.diamond-divider::before,
+.diamond-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold-line);
+  opacity: 0.5;
+}
+
+.diamond-divider .diamond {
+  width: 6px;
+  height: 6px;
+  background: var(--gold-line);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* --- Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

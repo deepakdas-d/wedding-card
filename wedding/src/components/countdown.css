@@ -1,0 +1,39 @@
+.countdown-section {
+  width: 100%;
+}
+
+.countdown-section .simple-card h2 {
+  margin-bottom: 24px;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+@media (min-width: 400px) {
+  .countdown-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat-box {
+  background-color: var(--bg-blush);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.stat-box .numeral-text {
+  line-height: 1;
+}
+
+.stat-box .label-text {
+  font-size: 0.7rem;
+}

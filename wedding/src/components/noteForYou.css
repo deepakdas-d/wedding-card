@@ -1,0 +1,12 @@
+.note-section {
+  width: 100%;
+}
+
+.note-section h2 {
+  margin-bottom: 12px;
+}
+
+.note-text {
+  margin-top: 24px;
+  line-height: 1.6;
+}

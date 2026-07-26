@@ -1,0 +1,24 @@
+.our-story-card {
+  width: 100%;
+}
+
+.our-story-card .label-text {
+  margin-bottom: 16px;
+}
+
+.our-story-card .diamond-divider {
+  margin-bottom: 24px;
+}
+
+.our-story-card .italic-quote {
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.our-story-card .narrative {
+  margin-bottom: 16px;
+}
+
+.our-story-card .narrative:last-child {
+  margin-bottom: 0;
+}

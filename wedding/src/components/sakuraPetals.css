@@ -1,0 +1,43 @@
+/* ============================================================
+   SakuraPetals — Pure CSS falling petal animation
+   GPU-composited transform+opacity only
+   ============================================================ */
+.sakura-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: var(--z-petals, 20);
+}
+
+.sakura-petal {
+  position: absolute;
+  top: -5%;
+  background: radial-gradient(circle at 30% 30%, #ffd9e6, #f7b8cd 60%, #e8a0bc);
+  border-radius: 60% 0 60% 0;
+  opacity: 0;
+  animation-name: sakura-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes sakura-fall {
+  0% {
+    transform: translateY(0) translateX(0) rotate(var(--rot-start));
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(110vh) translateX(var(--drift)) rotate(calc(var(--rot-start) + 360deg));
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sakura-container {
+    display: none;
+  }
+}

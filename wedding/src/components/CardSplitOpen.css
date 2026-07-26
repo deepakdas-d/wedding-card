@@ -1,0 +1,103 @@
+/* ============================================================
+   CardSplitOpen – Pure CSS 3D split-open card animation
+   Phase 1: Card halves rotate open fully
+   Phase 2: Cinematic zoom-through into the opening
+   ============================================================ */
+
+.card-split-open {
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* Zoom transition applied to the entire container */
+  transition-property: transform, opacity;
+  transition-timing-function: cubic-bezier(0.25, 0.0, 0.15, 1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Phase 2: Zoom-through — camera dives into the opening */
+.card-split-open--zooming {
+  transform: scale(3.5);
+  opacity: 0;
+}
+
+/* The container that holds both halves side-by-side — fills full viewport */
+.card-split-open__card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* Dark burgundy interior visible through the seam gap */
+.card-split-open__interior {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #2A080F;
+  /* Subtle inner shadow for depth */
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Base half styling */
+.card-split-open__half {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  background-repeat: no-repeat;
+
+  /* Cover: scale the full image to completely fill the viewport
+     while maintaining its natural aspect ratio (2614 × 1536).
+     Both halves share these computed dimensions so they align
+     seamlessly at the center seam. */
+  --cover-w: max(100vw, calc(100vh * 2614 / 1536));
+  --cover-h: max(100vh, calc(100vw * 1536 / 2614));
+  background-size: var(--cover-w) var(--cover-h);
+  background-position-y: center;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Smooth cubic-bezier for an elegant, physical feel */
+  transition-property: transform, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+  will-change: transform;
+}
+
+/* Left half: anchored on its left edge, shows left half of image */
+.card-split-open__half--left {
+  transform-origin: left center;
+  background-position-x: calc(50vw - var(--cover-w) / 2);
+}
+
+/* Right half: anchored on its right edge, shows right half of image */
+.card-split-open__half--right {
+  transform-origin: right center;
+  background-position-x: calc(var(--cover-w) / -2);
+}
+
+/* Open state — depth shadows when halves rotate */
+.card-split-open__half--left.card-split-open__half--open {
+  box-shadow: 8px 0 32px rgba(0, 0, 0, 0.45);
+}
+
+.card-split-open__half--right.card-split-open__half--open {
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.45);
+}
+
+/* ============================================================
+   Accessibility: prefers-reduced-motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .card-split-open,
+  .card-split-open__half {
+    transition-duration: 0ms !important;
+    transition-delay: 0ms !important;
+  }
+}
