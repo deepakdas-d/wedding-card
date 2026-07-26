@@ -29,8 +29,6 @@
 .card-split-open__card {
   position: relative;
   display: flex;
-  width: 100%;
-  height: 100%;
 }
 
 /* Dark burgundy interior visible through the seam gap */
@@ -83,6 +81,7 @@
   pointer-events: none;
 }
 
+
 .half-img--left {
   left: 0;
 }
@@ -90,6 +89,8 @@
 .half-img--right {
   right: 0;
 }
+
+
 
 /* Open state — depth shadows when halves rotate */
 .card-split-open__half--left.card-split-open__half--open {

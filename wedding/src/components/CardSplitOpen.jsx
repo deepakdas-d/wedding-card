@@ -7,19 +7,19 @@ import './CardSplitOpen.css';
  *   Phase 2: Cinematic zoom-through — camera dives into the opening.
  *
  * Props:
- *   imageUrl     – URL to the card image (transparent PNG)
- *   width        – Card width: number (px) or string (CSS value). Optional.
- *   height       – Card height: number (px) or string (CSS value). Optional.
- *   openAngle    – Degrees each half rotates outward (default: 75)
- *   duration     – Card open animation duration in ms (default: 1200)
- *   zoomDuration – Zoom-through duration in ms (default: 800)
- *   delay        – Delay before animation starts in ms (default: 300)
- *   onComplete   – Callback fired once after entire sequence completes
+ *   imageUrl         – URL to the card image (transparent PNG)
+ *   mobileImageUrl   – Optional URL to a vertical/portrait version for mobile
+ *   maxWidth         – Maximum card width: number (px) or string (CSS value). Optional.
+ *   openAngle        – Degrees each half rotates outward (default: 75)
+ *   duration         – Card open animation duration in ms (default: 1200)
+ *   zoomDuration     – Zoom-through duration in ms (default: 800)
+ *   delay            – Delay before animation starts in ms (default: 300)
+ *   onComplete       – Callback fired once after entire sequence completes
  */
 export default function CardSplitOpen({
   imageUrl,
-  width,
-  height,
+  mobileImageUrl,
+  maxWidth = 1000,
   openAngle = 75,
   duration = 1200,
   zoomDuration = 800,
@@ -76,13 +76,10 @@ export default function CardSplitOpen({
   }, [delay, duration, zoomDuration, onComplete]);
 
   // Build card container style
-  const cardStyle = {};
-  if (width != null) {
-    cardStyle.width = typeof width === 'number' ? `${width}px` : width;
-  }
-  if (height != null) {
-    cardStyle.height = typeof height === 'number' ? `${height}px` : height;
-  }
+  const cardStyle = {
+    width: '100%',
+    height: '100%',
+  };
 
   const isOpen = phase === 'opening' || phase === 'zooming';
   const isZooming = phase === 'zooming';
@@ -133,7 +130,10 @@ export default function CardSplitOpen({
             transform: isOpen ? `rotateY(${openAngle}deg)` : 'rotateY(0deg)',
           }}
         >
-          <img src={imageUrl} alt="" className="half-img half-img--left" />
+          <picture>
+            {mobileImageUrl && <source media="(max-width: 768px)" srcSet={mobileImageUrl} />}
+            <img src={imageUrl} alt="" className="half-img half-img--left" />
+          </picture>
         </div>
 
         {/* Right half */}
@@ -144,7 +144,10 @@ export default function CardSplitOpen({
             transform: isOpen ? `rotateY(-${openAngle}deg)` : 'rotateY(0deg)',
           }}
         >
-          <img src={imageUrl} alt="" className="half-img half-img--right" />
+          <picture>
+            {mobileImageUrl && <source media="(max-width: 768px)" srcSet={mobileImageUrl} />}
+            <img src={imageUrl} alt="" className="half-img half-img--right" />
+          </picture>
         </div>
       </div>
     </div>

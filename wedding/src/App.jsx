@@ -39,6 +39,7 @@ function App() {
         >
           <CardSplitOpen
             imageUrl="/card-closed.png"
+            mobileImageUrl="/card_vertical_cropped.jpeg"
             openAngle={110}
             duration={1400}
             zoomDuration={800}
@@ -62,7 +63,7 @@ function App() {
 
         <footer className="wedding-footer">
           <p className="wedding-footer__text">
-            Made with love — Priya & Arjun
+            Made with love — Shahin Shah & Shahala
           </p>
         </footer>
       </main>
