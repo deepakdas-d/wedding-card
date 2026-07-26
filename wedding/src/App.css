@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(ellipse at center, #3A0C18 0%, #1A0509 100%);
+  background: transparent;
   opacity: 1;
   transition: opacity 400ms ease-out;
 }

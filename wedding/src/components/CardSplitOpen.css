@@ -40,9 +40,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: #2A080F;
+  background: transparent;
   /* Subtle inner shadow for depth */
   box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.5);
+  opacity: 0; /* Hide interior so content behind is visible */
 }
 
 /* Base half styling */
@@ -51,16 +52,7 @@
   height: 100%;
   position: relative;
   z-index: 1;
-  background-repeat: no-repeat;
-
-  /* Cover: scale the full image to completely fill the viewport
-     while maintaining its natural aspect ratio (2614 × 1536).
-     Both halves share these computed dimensions so they align
-     seamlessly at the center seam. */
-  --cover-w: max(100vw, calc(100vh * 2614 / 1536));
-  --cover-h: max(100vh, calc(100vw * 1536 / 2614));
-  background-size: var(--cover-w) var(--cover-h);
-  background-position-y: center;
+  overflow: hidden;
 
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -70,16 +62,33 @@
   will-change: transform;
 }
 
-/* Left half: anchored on its left edge, shows left half of image */
+/* Left half: anchored on its left edge */
 .card-split-open__half--left {
   transform-origin: left center;
-  background-position-x: calc(50vw - var(--cover-w) / 2);
 }
 
-/* Right half: anchored on its right edge, shows right half of image */
+/* Right half: anchored on its right edge */
 .card-split-open__half--right {
   transform-origin: right center;
-  background-position-x: calc(var(--cover-w) / -2);
+}
+
+/* Inner image setup */
+.half-img {
+  position: absolute;
+  top: 0;
+  width: 200%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+
+.half-img--left {
+  left: 0;
+}
+
+.half-img--right {
+  right: 0;
 }
 
 /* Open state — depth shadows when halves rotate */

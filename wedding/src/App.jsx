@@ -39,10 +39,10 @@ function App() {
         >
           <CardSplitOpen
             imageUrl="/card-closed.png"
-            openAngle={75}
-            duration={1200}
+            openAngle={110}
+            duration={1400}
             zoomDuration={800}
-            delay={400}
+            delay={200}
             onComplete={handleCardComplete}
           />
         </div>

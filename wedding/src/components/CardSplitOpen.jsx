@@ -54,7 +54,8 @@ export default function CardSplitOpen({
     addTimer(() => {
       setPhase('opening');
 
-      // Phase 2: After card fully opens, start zoom-through
+      // Phase 2: Start zoom-through *before* the card fully opens for a fluid, lag-free transition
+      const zoomOverlap = 400; // ms to overlap
       addTimer(() => {
         setPhase('zooming');
 
@@ -65,7 +66,7 @@ export default function CardSplitOpen({
             onComplete();
           }
         }, zoomDuration);
-      }, duration);
+      }, Math.max(0, duration - zoomOverlap));
     }, delay);
 
     return () => {
@@ -87,7 +88,6 @@ export default function CardSplitOpen({
   const isZooming = phase === 'zooming';
 
   const halfStyle = {
-    backgroundImage: `url(${imageUrl})`,
     transitionDuration: `${duration}ms`,
   };
 
@@ -132,7 +132,9 @@ export default function CardSplitOpen({
             ...halfStyle,
             transform: isOpen ? `rotateY(${openAngle}deg)` : 'rotateY(0deg)',
           }}
-        />
+        >
+          <img src={imageUrl} alt="" className="half-img half-img--left" />
+        </div>
 
         {/* Right half */}
         <div
@@ -141,7 +143,9 @@ export default function CardSplitOpen({
             ...halfStyle,
             transform: isOpen ? `rotateY(-${openAngle}deg)` : 'rotateY(0deg)',
           }}
-        />
+        >
+          <img src={imageUrl} alt="" className="half-img half-img--right" />
+        </div>
       </div>
     </div>
   );
