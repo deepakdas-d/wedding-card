@@ -9,6 +9,7 @@ import NoteForYou from './components/NoteForYou'
 import OurStory from './components/OurStory'
 import FindUs from './components/FindUs'
 import RSVPForm from './components/RSVPForm'
+import CouplePics from './components/CouplePics'
 import './App.css'
 
 function App() {
@@ -41,9 +42,10 @@ function App() {
       {/* Main wedding content */}
       <main className="wedding-main">
         <div className="card-sequence">
-          <HeroSection isActive={onboardingStep >= 1} />
-          <CeremonyDetails />
+          <HeroSection showConfetti={onboardingStep === 2} />
           <Countdown />
+          <CouplePics />
+          <CeremonyDetails />
           <NoteForYou />
           <OurStory />
           <FindUs />

@@ -1,41 +1,89 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect } from 'react';
+import confetti from 'canvas-confetti';
 import ArchCard from './ArchCard';
 import './heroSection.css';
 
-const HeroSection = ({ isActive = true }) => {
+const HeroSection = ({ showConfetti }) => {
+  useEffect(() => {
+    if (!showConfetti) return;
+
+    const end = Date.now() + 3 * 1000; // 3 seconds
+    // Theme-aligned gold colors based on --gold-line (#B9945B)
+    const colors = ["#B9945B", "#C8A66E", "#A57E45", "#D8B984"];
+
+    // Reduce intensity for mobile screens significantly
+    const isMobile = window.innerWidth < 768;
+    const pCount = isMobile ? 1 : 2;
+    const spreadValue = isMobile ? 30 : 55;
+    const velocityValue = isMobile ? 35 : 60;
+
+    const frame = () => {
+      if (Date.now() > end) return;
+
+      // Skip 80% of frames on mobile to create a much lighter, gentler sprinkle
+      if (isMobile && Math.random() > 0.2) {
+        requestAnimationFrame(frame);
+        return;
+      }
+
+      confetti({
+        particleCount: pCount,
+        angle: 60,
+        spread: spreadValue,
+        startVelocity: velocityValue,
+        origin: { x: 0, y: 0.5 },
+        colors: colors,
+        scalar: 1.5, // Increase particle size for better visibility
+      });
+      confetti({
+        particleCount: pCount,
+        angle: 120,
+        spread: spreadValue,
+        startVelocity: velocityValue,
+        origin: { x: 1, y: 0.5 },
+        colors: colors,
+        scalar: 1.5, // Increase particle size for better visibility
+      });
+
+      requestAnimationFrame(frame);
+    };
+
+    frame();
+  }, [showConfetti]);
+
   return (
     <section className="hero-section">
       <ArchCard showFlourish={true} id="hero">
-        <div className="hero-content">
-          <div className="hero-image-container">
-            <img src="/couple.jpg" alt="Priya and Arjun" className="hero-image" />
-          </div>
-          <motion.h1 
-            className="couple-names display-text gold-text"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={isActive ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
-            transition={{
-              duration: 0.8,
-              type: "spring",
-              stiffness: 150,
-            }}
-          >
-            <span className="name-part">Shahin Shah</span>
-            <span className="ampersand">&</span>
-            <span className="name-part">Shahala</span>
-          </motion.h1>
-          <p className="tagline body-text">
-            Together with their families, invite you to celebrate their union
+        <div className="hero-content reference-design">
+          <div className="wedding-label">W E D D I N G</div>
+          <p className="tagline-text">
+            Together with our families we joyfully invite<br />
+            you to celebrate our Wedding
           </p>
-          <div className="date-display">
-            August 15, 2026
+          <h1 className="couple-names display-text">
+            <span className="name-part">Shahin Shah</span>
+            <span className="ampersand divider-amp">&</span>
+            <span className="name-part">Shahala</span>
+          </h1>
+          
+          <div className="floral-divider">
+            <span className="divider-line"></span>
+            <span className="divider-diamond"></span>
+            <span className="divider-line"></span>
+          </div>
+
+          <div className="date-display-reference">
+            SUNDAY, 15TH AUGUST 2026
+          </div>
+
+          <div className="scroll-cue-reference">
+            <span className="scroll-text">SCROLL</span>
+            <span className="arrow-down">⌄</span>
+            <span className="arrow-down">⌄</span>
+            <span className="arrow-down">⌄</span>
           </div>
         </div>
       </ArchCard>
-      <div className="scroll-cue">
-        <span className="arrow-down">↓</span>
-      </div>
     </section>
   );
 };
