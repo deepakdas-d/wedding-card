@@ -93,3 +93,19 @@
     transform: translateY(-5px);
   }
 }
+
+.gold-text {
+  background: linear-gradient(
+    135deg,
+    #5c4300 0%,
+    #b8860b 20%,
+    #ffd700 40%,
+    #fff2b2 50%,
+    #ffd700 60%,
+    #b8860b 80%,
+    #5c4300 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

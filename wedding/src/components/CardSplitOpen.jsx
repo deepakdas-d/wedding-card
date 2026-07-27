@@ -28,6 +28,7 @@ export default function CardSplitOpen({
 }) {
   // Phase: 'closed' → 'opening' → 'zooming' → done
   const [phase, setPhase] = useState('closed');
+  const [imagesLoaded, setImagesLoaded] = useState(false);
   const completedRef = useRef(false);
   const timersRef = useRef([]);
 
@@ -38,6 +39,31 @@ export default function CardSplitOpen({
   };
 
   useEffect(() => {
+    let isMounted = true;
+    const loadImages = async () => {
+      const urls = [imageUrl, mobileImageUrl].filter(Boolean);
+      const promises = urls.map((src) => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.onload = resolve;
+          img.onerror = resolve; // Continue even if error
+          img.src = src;
+        });
+      });
+      await Promise.all(promises);
+      if (isMounted) {
+        setImagesLoaded(true);
+      }
+    };
+    loadImages();
+    return () => {
+      isMounted = false;
+    };
+  }, [imageUrl, mobileImageUrl]);
+
+  useEffect(() => {
+    if (!imagesLoaded) return;
+
     const prefersReducedMotion =
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -73,7 +99,7 @@ export default function CardSplitOpen({
       timersRef.current.forEach(clearTimeout);
       timersRef.current = [];
     };
-  }, [delay, duration, zoomDuration, onComplete]);
+  }, [delay, duration, zoomDuration, onComplete, imagesLoaded]);
 
   // Build card container style
   const cardStyle = {

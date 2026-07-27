@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react'
-import CardSplitOpen from './components/CardSplitOpen'
+import EnvelopeOnboarding from './components/EnvelopeOnboarding'
 import FloralBackground from './components/FloralBackground'
 import SakuraPetals from './components/SakuraPetals'
 import HeroSection from './components/HeroSection'
@@ -18,8 +18,8 @@ function App() {
   const handleCardComplete = useCallback(() => {
     // Start fade-out
     setOnboardingStep(1)
-    // After fade-out transition (400ms), remove overlay entirely
-    setTimeout(() => setOnboardingStep(2), 400)
+    // After fade-out transition (800ms), remove overlay entirely
+    setTimeout(() => setOnboardingStep(2), 850)
   }, [])
 
   return (
@@ -32,27 +32,16 @@ function App() {
 
       {/* Onboarding overlay */}
       {onboardingStep < 2 && (
-        <div
-          className={`onboarding-screen${
-            onboardingStep === 1 ? ' onboarding-screen--exiting' : ''
-          }`}
-        >
-          <CardSplitOpen
-            imageUrl="/card-closed.png"
-            mobileImageUrl="/card_vertical_cropped.jpeg"
-            openAngle={110}
-            duration={1400}
-            zoomDuration={800}
-            delay={200}
-            onComplete={handleCardComplete}
-          />
-        </div>
+        <EnvelopeOnboarding
+          onComplete={handleCardComplete}
+          isExiting={onboardingStep === 1}
+        />
       )}
 
       {/* Main wedding content */}
       <main className="wedding-main">
         <div className="card-sequence">
-          <HeroSection />
+          <HeroSection isActive={onboardingStep >= 1} />
           <CeremonyDetails />
           <Countdown />
           <NoteForYou />
