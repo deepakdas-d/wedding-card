@@ -15,6 +15,7 @@
 
 .ceremony-content h2 {
   margin-bottom: 12px;
+  color: var(--bg-cream);
 }
 
 .details-list {
@@ -22,6 +23,7 @@
   flex-direction: column;
   gap: 16px;
   margin-top: 24px;
+  color: var(--bg-cream);
 }
 
 .details-list p {
@@ -30,7 +32,7 @@
 
 .details-list strong {
   font-family: var(--font-heading);
-  color: var(--maroon-accent);
+  color: var(--gold-line);
   font-weight: 600;
   margin-right: 4px;
 }

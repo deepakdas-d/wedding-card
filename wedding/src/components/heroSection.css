@@ -103,24 +103,60 @@
   position: relative;
 }
 
+.bismillah-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeDown 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 0.95;
+    transform: translateY(0);
+  }
+}
+
+.bismillah-image {
+  width: 85%;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0px 3px 10px rgba(0, 0, 0, 0.2));
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
+}
+
+.bismillah-image:hover {
+  transform: scale(1.02);
+  filter: drop-shadow(0px 4px 12px rgba(200, 162, 92, 0.3)); /* Gold tinted shadow on hover */
+}
+
 .wedding-label {
-  border: 1px solid rgba(185, 148, 91, 0.4);
-  background-color: rgba(255, 250, 240, 0.5);
-  padding: 4px 16px;
-  font-size: 0.75rem;
-  letter-spacing: 0.4em;
-  color: var(--text-dark, #5a4a42);
-  margin-top: 40px;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  color: var(--bg-cream);
+  margin-top: 15px;
+  text-transform: uppercase;
 }
 
 .tagline-text {
   font-family: var(--font-body);
   font-style: italic;
   font-size: 0.95rem;
-  color: var(--text-dark, #5a4a42);
+  color: var(--bg-cream);
   line-height: 1.6;
   margin: 10px 0;
   max-width: 280px;
+}
+
+.couple-names.display-text {
+  color: var(--bg-cream);
 }
 
 .divider-amp {
@@ -150,7 +186,7 @@
 .floral-divider .divider-diamond {
   width: 6px;
   height: 6px;
-  background-color: var(--maroon-accent);
+  background-color: var(--gold-line);
   transform: rotate(45deg);
   opacity: 0.8;
 }
@@ -159,9 +195,10 @@
   font-family: var(--font-body);
   font-size: 0.8rem;
   letter-spacing: 0.2em;
-  color: var(--text-dark, #5a4a42);
+  color: var(--bg-cream);
   font-weight: 500;
   margin-top: 20px;
+  text-transform: uppercase;
 }
 
 .scroll-cue-reference {
@@ -170,7 +207,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--text-dark, #5a4a42);
+  color: var(--bg-cream);
   animation: bounce 2s infinite;
   z-index: 10;
 }

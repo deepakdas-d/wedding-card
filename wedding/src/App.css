@@ -46,6 +46,7 @@
 /* Simple card (non-arch) — shared base for sections without arch frame */
 .simple-card {
   background: var(--bg-cream);
+  color: var(--text-body);
   border-radius: var(--card-radius, 28px);
   box-shadow: var(--card-shadow);
   padding: var(--card-padding, 40px 32px);

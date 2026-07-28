@@ -4,11 +4,11 @@ import './rsvpForm.css';
 const RSVPForm = () => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     phone: '',
     attending: 'accept'
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,10 +25,32 @@ const RSVPForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('RSVP Submitted:', formData);
-    setSubmitted(true);
+    
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+  
+    const attendingValue = formData.attending === 'accept' ? 'Yes' : 'No';
+  
+    try {
+      await fetch('https://script.google.com/macros/s/AKfycbyGaCVDD2quhgI9_ugWRnM2ZnK76WIQ-UR81_zQ9o-UPzRymbE7_n3nIkkeIjmoS7ml/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          attending: attendingValue
+        }),
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8'
+        }
+      });
+      setSubmitted(true);
+    } catch (error) {
+      console.error('Error submitting RSVP', error);
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -64,20 +86,7 @@ const RSVPForm = () => {
           />
         </div>
         
-        <div className="form-group">
-          <label className="form-label" htmlFor="email">EMAIL</label>
-          <input 
-            type="email" 
-            id="email"
-            name="email"
-            placeholder="Email Address" 
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="form-input"
-          />
-        </div>
-        
+
         <div className="form-group">
           <label className="form-label" htmlFor="phone">PHONE</label>
           <input 
@@ -112,8 +121,8 @@ const RSVPForm = () => {
           </div>
         </div>
         
-        <button type="submit" className="btn-submit">
-          Send RSVP
+        <button type="submit" className="btn-submit" disabled={isSubmitting}>
+          {isSubmitting ? 'Sending...' : 'Send RSVP'}
         </button>
       </form>
     </div>

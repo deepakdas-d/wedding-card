@@ -34,25 +34,25 @@ const Countdown = () => {
 
   return (
     <section className="countdown-section">
-      <div className="simple-card">
-        <h2 className="label-text">COUNTING DOWN</h2>
+      <div className="countdown-container">
+        <h2 className="label-text" style={{ color: 'var(--bg-cream)' }}>BEGINNING OUR FOREVER IN</h2>
         
         <div className="countdown-grid">
           <div className="stat-box">
-            <span className="numeral-text">{timeLeft.days}</span>
-            <span className="label-text">DAYS</span>
+            <span className="numeral-text" style={{ color: 'var(--bg-cream)' }}>{timeLeft.days}</span>
+            <span className="label-text" style={{ color: 'var(--bg-cream)' }}>DAYS</span>
           </div>
           <div className="stat-box">
-            <span className="numeral-text">{timeLeft.hours}</span>
-            <span className="label-text">HOURS</span>
+            <span className="numeral-text" style={{ color: 'var(--bg-cream)' }}>{timeLeft.hours}</span>
+            <span className="label-text" style={{ color: 'var(--bg-cream)' }}>HOURS</span>
           </div>
           <div className="stat-box">
-            <span className="numeral-text">{timeLeft.minutes}</span>
-            <span className="label-text">MINUTES</span>
+            <span className="numeral-text" style={{ color: 'var(--bg-cream)' }}>{timeLeft.minutes}</span>
+            <span className="label-text" style={{ color: 'var(--bg-cream)' }}>MINUTES</span>
           </div>
           <div className="stat-box">
-            <span className="numeral-text">{timeLeft.seconds}</span>
-            <span className="label-text">SECONDS</span>
+            <span className="numeral-text" style={{ color: 'var(--bg-cream)' }}>{timeLeft.seconds}</span>
+            <span className="label-text" style={{ color: 'var(--bg-cream)' }}>SECONDS</span>
           </div>
         </div>
       </div>

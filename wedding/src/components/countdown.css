@@ -2,8 +2,17 @@
   width: 100%;
 }
 
-.countdown-section .simple-card h2 {
-  margin-bottom: 24px;
+.countdown-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.countdown-container h2 {
+  margin-bottom: 16px;
 }
 
 .countdown-grid {
@@ -14,7 +23,7 @@
 }
 
 .stat-box {
-  background-color: var(--bg-blush);
+  background-color: rgba(0, 0, 0, 0.2);
   border-radius: 12px;
   padding: 12px 4px;
   display: flex;

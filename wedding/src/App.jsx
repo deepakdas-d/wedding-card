@@ -25,8 +25,8 @@ function App() {
 
   return (
     <>
-      {/* Fixed background — dried floral border */}
-      <FloralBackground />
+      {/* Fixed background — dried floral border (hidden for dark theme) */}
+      {/* <FloralBackground /> */}
 
       {/* Sakura petal fall animation */}
       <SakuraPetals />

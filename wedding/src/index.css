@@ -15,6 +15,7 @@
   --pampas-cream: #E8DFC8;
   --input-bg: #E8E3D3;
   --cta-red: #A32638;
+  --bg-eggplant: #350822;
 
   /* Typography */
   --font-display: 'Playfair Display', 'Georgia', serif;
@@ -53,8 +54,9 @@ html {
 
 body {
   margin: 0;
-  background: var(--bg-cream);
-  color: var(--text-body);
+  background: radial-gradient(circle at center, var(--bg-eggplant) 0%, #15030e 100%);
+  background-attachment: fixed;
+  color: var(--bg-cream);
   font-family: var(--font-body);
   font-size: clamp(16px, 1rem + 0.2vw, 18px);
   line-height: 1.65;

@@ -55,6 +55,9 @@ const HeroSection = ({ showConfetti }) => {
     <section className="hero-section">
       <ArchCard showFlourish={true} id="hero">
         <div className="hero-content reference-design">
+          <div className="bismillah-container">
+            <img src="/bismillah.png" alt="Bismillah" className="bismillah-image" />
+          </div>
           <div className="wedding-label">W E D D I N G</div>
           <p className="tagline-text">
             Together with our families we joyfully invite<br />

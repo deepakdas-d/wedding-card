@@ -3,9 +3,8 @@
    ============================================================ */
 .arch-card {
   position: relative;
-  background: var(--bg-cream);
+  background: transparent;
   border-radius: var(--card-radius, 28px);
-  box-shadow: var(--card-shadow);
   padding: var(--card-padding, 40px 32px);
   width: 100%;
   scroll-snap-align: start;
@@ -40,6 +39,7 @@
 .arch-card__flourish {
   display: flex;
   justify-content: center;
+  margin-top: 16px;
   margin-bottom: 8px;
 }
 

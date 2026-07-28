@@ -13,7 +13,7 @@ const CeremonyDetails = () => {
           <div className="details-list body-text">
             <p><strong>Date:</strong> Saturday, August 15, 2026</p>
             <p><strong>Time:</strong> 4:00 PM Onwards</p>
-            <p><strong>Venue:</strong> The Grand Palace, Mumbai</p>
+            <p><strong>Venue:</strong> Shibi Auditorium, Vazhampuram, Kerala</p>
           </div>
         </div>
       </ArchCard>
