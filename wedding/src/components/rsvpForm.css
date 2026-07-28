@@ -1,9 +1,11 @@
 .rsvp-card {
   width: 100%;
+  color: var(--bg-cream);
 }
 
 .rsvp-card .label-text {
   margin-bottom: 16px;
+  color: var(--bg-cream);
 }
 
 .rsvp-card .diamond-divider {
@@ -33,7 +35,7 @@
   font-family: var(--font-heading);
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--maroon-accent);
+  color: var(--gold-line);
   font-size: 11px;
   margin-bottom: 6px;
   display: block;

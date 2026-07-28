@@ -1,9 +1,10 @@
 import React from 'react';
+import ArchCard from './ArchCard';
 import './ourStory.css';
 
 const OurStory = () => {
   return (
-    <div className="simple-card our-story-card">
+    <ArchCard showFlourish={true} className="our-story-card">
       <h2 className="label-text">OUR STORY</h2>
       <div className="diamond-divider"><span className="diamond" /></div>
       <p className="body-text italic-quote">
@@ -15,7 +16,7 @@ const OurStory = () => {
       <p className="body-text narrative">
         Through every season, our love has grown deeper and stronger. Now, we are ready to begin the most beautiful chapter of our lives — together, forever.
       </p>
-    </div>
+    </ArchCard>
   );
 };
 

@@ -1,9 +1,11 @@
 .find-us-card {
   width: 100%;
+  color: var(--bg-cream);
 }
 
 .find-us-card .label-text {
   margin-bottom: 16px;
+  color: var(--bg-cream);
 }
 
 .find-us-card .diamond-divider {
@@ -23,6 +25,7 @@
 
 .find-us-card .address {
   margin-bottom: 24px;
+  color: var(--bg-cream);
 }
 
 .btn-directions {

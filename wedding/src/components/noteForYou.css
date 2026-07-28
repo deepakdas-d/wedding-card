@@ -4,9 +4,11 @@
 
 .note-section h2 {
   margin-bottom: 12px;
+  color: var(--bg-cream);
 }
 
 .note-text {
   margin-top: 24px;
   line-height: 1.6;
+  color: var(--bg-cream);
 }

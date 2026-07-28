@@ -73,8 +73,7 @@
   font-family: var(--font-heading);
   font-style: normal;
   font-size: 12px;
-  color: var(--maroon-accent);
-  opacity: 0.5;
+  color: var(--bg-cream);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }

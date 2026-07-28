@@ -1,9 +1,10 @@
 import React from 'react';
+import ArchCard from './ArchCard';
 import './findUs.css';
 
 const FindUs = () => {
   return (
-    <div className="simple-card find-us-card">
+    <ArchCard showFlourish={true} className="find-us-card">
       <h2 className="label-text">FIND US</h2>
       <div className="diamond-divider"><span className="diamond" /></div>
       
@@ -28,7 +29,7 @@ const FindUs = () => {
       >
         Get Directions
       </a>
-    </div>
+    </ArchCard>
   );
 };
 
