@@ -1,11 +1,39 @@
-.our-story-card {
+.our-story-section {
   width: 100%;
-  color: var(--bg-cream);
+  background-color: var(--bg-cream);
+  position: relative;
+  z-index: 10;
+  padding: 40px 16px;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px; /* Space for the top tear */
+  margin-bottom: 40px; /* Space for the bottom tear */
+}
+
+.our-story-container {
+  width: 100%;
+  max-width: var(--card-max-width, 460px);
+}
+
+.torn-edge-top {
+  position: absolute;
+  top: -79px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  line-height: 0;
+  /* No scaleY(-1) so it points UP */
+}
+
+.our-story-card {
+  background-color: transparent;
+  color: var(--text-body);
 }
 
 .our-story-card .label-text {
   margin-bottom: 16px;
-  color: var(--bg-cream);
+  color: var(--maroon-deep);
 }
 
 .our-story-card .diamond-divider {
@@ -15,12 +43,12 @@
 .our-story-card .italic-quote {
   font-style: italic;
   margin-bottom: 24px;
-  color: var(--bg-cream);
+  color: var(--maroon-accent);
 }
 
 .our-story-card .narrative {
   margin-bottom: 16px;
-  color: var(--bg-cream);
+  color: var(--text-body);
 }
 
 .our-story-card .narrative:last-child {

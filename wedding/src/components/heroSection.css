@@ -1,224 +1,112 @@
-.hero-section {
+.hero-section.hero-fullscreen {
   min-height: 100vh;
   min-height: 100dvh;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding-top: env(safe-area-inset-top);
+  justify-content: flex-end; /* Push everything towards bottom */
   position: relative;
   width: 100%;
+  background-image: url('/couple.jpg');
+  background-size: cover;
+  background-position: center 15%;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
 
-.hero-content {
+.hero-background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Stronger fade at the bottom to blend with floral image's dark theme */
+  background: linear-gradient(to bottom, rgba(21,3,14,0) 10%, rgba(21,3,14,0.4) 40%, rgba(21,3,14,0.85) 75%, rgba(21,3,14,1) 95%);
+  z-index: 1;
+}
+
+.hero-content.reference-design {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 16px;
-}
-
-.couple-names {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.name-part {
-  white-space: nowrap;
-}
-
-.tagline {
-  margin: 8px 0;
-  max-width: 300px;
-}
-
-.date-display {
-  font-family: var(--font-heading);
-  color: var(--maroon-accent);
-  font-size: 1.25rem;
-  font-weight: 500;
-  margin-top: 16px;
-  letter-spacing: 0.05em;
-}
-
-.hero-image-container {
-  width: 240px;
-  height: 320px;
-  flex-shrink: 0;
-  margin: 0 auto;
-  border-radius: 120px 120px 24px 24px;
-  overflow: hidden;
-  border: 2px solid var(--gold-line, #c8a25c);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-}
-
-@media (min-width: 768px) {
-  .hero-image-container {
-    width: 360px;
-    height: 480px;
-    border-radius: 180px 180px 32px 32px;
-  }
-}
-
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  object-position: center 30%;
-}
-
-.scroll-cue {
-  position: absolute;
-  bottom: 32px;
-  color: var(--gold-line);
-  font-size: 24px;
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-}
-
-/* Reference Design Styles */
-.reference-design {
-  gap: 20px;
-  padding: 40px 20px;
-  height: 100%;
-  justify-content: flex-start;
-  position: relative;
-}
-
-.bismillah-container {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: fadeDown 1.5s ease-out forwards;
+  z-index: 2;
   opacity: 0;
+  animation: heroFadeUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.4s;
+  padding: 0 20px;
+  width: 100%;
+  /* Pull content down closer to floral */
+  margin-bottom: -40px; 
 }
 
-@keyframes fadeDown {
-  from {
+@keyframes heroFadeUp {
+  0% {
     opacity: 0;
-    transform: translateY(-15px);
+    transform: translateY(30px);
   }
-  to {
-    opacity: 0.95;
+  100% {
+    opacity: 1;
     transform: translateY(0);
   }
 }
 
-.bismillah-image {
-  width: 85%;
-  max-width: 400px;
+
+.couple-names-image {
+  width: 95%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.names-img {
+  width: 100%;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0px 3px 10px rgba(0, 0, 0, 0.2));
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
 }
 
-.bismillah-image:hover {
-  transform: scale(1.02);
-  filter: drop-shadow(0px 4px 12px rgba(200, 162, 92, 0.3)); /* Gold tinted shadow on hover */
+.floral-footer {
+  width: 100%;
+  z-index: 3;
+  position: relative;
+  line-height: 0;
+  margin-bottom: -40px; /* Push flowers lower */
 }
 
-.wedding-label {
-  font-size: 0.85rem;
-  letter-spacing: 0.3em;
-  color: var(--bg-cream);
-  margin-top: 15px;
-  text-transform: uppercase;
+.floral-bottom-img {
+  width: 100%;
+  height: auto;
+  max-height: 45vh;
+  object-fit: cover;
+  object-position: bottom;
+  /* Softly fade the top edge of the floral image */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 25%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 25%);
 }
 
-.tagline-text {
-  font-family: var(--font-body);
-  font-style: italic;
-  font-size: 0.95rem;
-  color: var(--bg-cream);
-  line-height: 1.6;
-  margin: 10px 0;
-  max-width: 280px;
+/* --- Desktop Responsiveness --- */
+@media (min-width: 768px) {
+  .hero-section.hero-fullscreen {
+    /* Adjust background position so heads aren't cut off when zoomed on wide screens */
+    background-position: center 30%;
+  }
+
+  .couple-names-image {
+    max-width: 600px;
+    margin-bottom: 30px;
+  }
+
+  .floral-footer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .floral-bottom-img {
+    max-width: 1200px;
+    max-height: 55vh; /* Allow a slightly taller crop on desktop */
+  }
 }
 
-.couple-names.display-text {
-  color: var(--bg-cream);
-}
-
-.divider-amp {
-  font-size: 2rem;
-  font-style: italic;
-  font-family: var(--font-heading);
-  color: var(--gold-line);
-  margin: 10px 0;
-}
-
-.floral-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin: 15px 0;
-  width: 60%;
-}
-
-.floral-divider .divider-line {
-  flex: 1;
-  height: 1px;
-  background-color: var(--gold-line);
-  opacity: 0.5;
-}
-
-.floral-divider .divider-diamond {
-  width: 6px;
-  height: 6px;
-  background-color: var(--gold-line);
-  transform: rotate(45deg);
-  opacity: 0.8;
-}
-
-.date-display-reference {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
-  color: var(--bg-cream);
-  font-weight: 500;
-  margin-top: 20px;
-  text-transform: uppercase;
-}
-
-.scroll-cue-reference {
-  position: absolute;
-  bottom: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: var(--bg-cream);
-  animation: bounce 2s infinite;
-  z-index: 10;
-}
-
-.scroll-cue-reference .scroll-text {
-  font-size: 0.6rem;
-  letter-spacing: 0.3em;
-  margin-bottom: 4px;
-}
-
-.scroll-cue-reference .arrow-down {
-  line-height: 0.5;
-  font-size: 1.2rem;
-}

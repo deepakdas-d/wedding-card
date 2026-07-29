@@ -52,6 +52,7 @@
   height: 100%;
   object-fit: cover;
   pointer-events: none;
+  transform: scale(1.25); /* Zoom to crop watermark and top/bottom background */
 }
 
 /* "Tap to Open" prompt */

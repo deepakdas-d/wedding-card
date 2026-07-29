@@ -1,5 +1,27 @@
 .countdown-section {
   width: 100%;
+  background-color: var(--bg-cream);
+  position: relative;
+  z-index: 10;
+  padding: 40px 16px 60px; /* Padding for the content */
+  margin-top: -2px; /* Pull up slightly to ensure no gap with SVG */
+}
+
+.torn-edge-bottom {
+  position: absolute;
+  bottom: -79px; /* Push it down out of the section */
+  left: 0;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  line-height: 0;
+  transform: scaleY(-1); /* Flip vertically so the jagged edge points down */
+}
+
+.torn-edge-bottom svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .countdown-container {
@@ -15,6 +37,27 @@
   margin-bottom: 16px;
 }
 
+.countdown-date-wrapper {
+  margin-bottom: 24px;
+}
+
+.wedding-day-label {
+  font-family: var(--font-body, serif);
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  color: var(--text-body);
+  margin-bottom: 6px;
+  text-transform: capitalize;
+}
+
+.date-display-reference {
+  font-family: var(--font-heading, serif);
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+  color: var(--maroon-deep);
+  line-height: 1.2;
+}
+
 .countdown-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -23,7 +66,7 @@
 }
 
 .stat-box {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(74, 53, 39, 0.05); /* Slight dark tint for boxes on cream bg */
   border-radius: 12px;
   padding: 12px 4px;
   display: flex;
@@ -36,7 +79,7 @@
 .stat-box .numeral-text {
   line-height: 1;
   font-size: clamp(32px, 8vw, 48px);
-  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+  /* Remove white text shadow since it's on light bg */
 }
 
 .stat-box .label-text {

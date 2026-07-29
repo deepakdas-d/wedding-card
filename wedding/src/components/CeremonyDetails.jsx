@@ -10,6 +10,8 @@ const CeremonyDetails = () => {
           <h2 className="label-text">WEDDING CEREMONY</h2>
           <div className="diamond-divider"><span className="diamond" /></div>
           
+          <img src="/venu.jpeg" alt="Wedding Venue" className="venue-image" />
+
           <div className="details-list body-text">
             <p><strong>Date:</strong> Saturday, August 15, 2026</p>
             <p><strong>Time:</strong> 4:00 PM Onwards</p>
