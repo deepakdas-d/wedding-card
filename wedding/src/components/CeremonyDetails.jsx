@@ -25,9 +25,21 @@ const CeremonyDetails = () => {
           
           <img src="/venu.jpeg" alt="Wedding Venue" className="venue-image" />
 
-          <div className="details-list body-text">
-            <p><strong>Date:</strong> Saturday, August 15, 2026</p>
-            <p><strong>Time:</strong> 4:00 PM Onwards</p>
+          <div className="wedding-date-wrapper">
+            <div className="wedding-date-grid">
+              <div className="wedding-date-side">Saturday</div>
+              <div className="wedding-date-center">
+                <span className="wedding-date-day">15</span>
+                <span className="wedding-date-year">2026</span>
+              </div>
+              <div className="wedding-date-side">August</div>
+            </div>
+            <div className="wedding-time-location">
+              at 4:00 PM Onwards
+            </div>
+          </div>
+
+          <div className="venue-details">
             <p><strong>Venue:</strong> Shibi Auditorium, Vazhampuram, Kerala</p>
           </div>
         </div>
