@@ -5,12 +5,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end; /* Push everything towards bottom */
+  justify-content: flex-end;
+  /* Push everything towards bottom */
   position: relative;
   width: 100%;
-  background-image: url('/couple.jpg');
-  background-size: cover;
-  background-position: center 15%;
+  background-image: url('/couple.jpeg');
+  /* Increase size slightly on mobile so we can shift the image upward */
+  background-size: auto 125%;
+  /* Push the bottom of the image to the bottom of the screen, which shifts the faces up */
+  background-position: center 120%;
   background-repeat: no-repeat;
   overflow: hidden;
 }
@@ -22,7 +25,7 @@
   width: 100%;
   height: 100%;
   /* Stronger fade at the bottom to blend with floral image's dark theme */
-  background: linear-gradient(to bottom, rgba(21,3,14,0) 10%, rgba(21,3,14,0.4) 40%, rgba(21,3,14,0.85) 75%, rgba(21,3,14,1) 95%);
+  background: linear-gradient(to bottom, rgba(21, 3, 14, 0) 10%, rgba(21, 3, 14, 0.4) 40%, rgba(21, 3, 14, 0.85) 75%, rgba(21, 3, 14, 1) 95%);
   z-index: 1;
 }
 
@@ -38,7 +41,7 @@
   padding: 0 20px;
   width: 100%;
   /* Pull content down closer to floral */
-  margin-bottom: -40px; 
+  margin-bottom: -40px;
 }
 
 @keyframes heroFadeUp {
@@ -46,6 +49,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -65,7 +69,19 @@
   width: 100%;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+}
+
+.with-love-text {
+  color: var(--gold-line);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-top: -15px;
+  margin-bottom: 25px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  letter-spacing: 2px;
+  font-weight: 400;
 }
 
 .floral-footer {
@@ -73,7 +89,8 @@
   z-index: 3;
   position: relative;
   line-height: 0;
-  margin-bottom: -40px; /* Push flowers lower */
+  margin-bottom: -40px;
+  /* Push flowers lower */
 }
 
 .floral-bottom-img {
@@ -90,8 +107,9 @@
 /* --- Desktop Responsiveness --- */
 @media (min-width: 768px) {
   .hero-section.hero-fullscreen {
-    /* Adjust background position so heads aren't cut off when zoomed on wide screens */
-    background-position: center 30%;
+    /* Revert to cover and center for desktop */
+    background-size: cover;
+    background-position: center 50%;
   }
 
   .couple-names-image {
@@ -106,7 +124,7 @@
 
   .floral-bottom-img {
     max-width: 1200px;
-    max-height: 55vh; /* Allow a slightly taller crop on desktop */
+    max-height: 55vh;
+    /* Allow a slightly taller crop on desktop */
   }
 }
-

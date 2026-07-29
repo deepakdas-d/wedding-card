@@ -36,8 +36,8 @@ const Countdown = () => {
     <section className="countdown-section">
       <div className="countdown-container">
         <div className="countdown-date-wrapper">
-          <div className="wedding-day-label">Wedding day</div>
-          <div className="date-display-reference">15.08.2026</div>
+          <div className="wedding-day-label">Wedding Day</div>
+          <div className="date-display-reference">16.08.2026</div>
         </div>
 
         <h2 className="label-text" style={{ color: 'var(--maroon-deep)' }}>BEGINNING OUR FOREVER IN</h2>

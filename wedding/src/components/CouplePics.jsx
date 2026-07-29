@@ -6,7 +6,7 @@ const CouplePics = () => {
     <section className="couple-pics-section" id="couple-pics">
       <div className="couple-pics-content">
         <div className="couple-image-container">
-          <img src="/couple.jpg" alt="Shahin Shah and Shahala" className="couple-image" />
+          <img src="/couple.jpeg" alt="Shahin Shah and Shahala" className="couple-image" />
         </div>
       </div>
     </section>

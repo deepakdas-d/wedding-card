@@ -2,9 +2,52 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 60px;
-  padding: 40px 20px;
+  margin-top: 120px;
+  margin-bottom: 140px;
+  padding: 40px 20px 60px;
   scroll-snap-align: start;
+  background-color: var(--bg-cream);
+  position: relative;
+  z-index: 10;
+}
+
+.ceremony-details .arch-card {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.torn-edge-top {
+  position: absolute;
+  top: -79px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.torn-edge-top svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.torn-edge-bottom {
+  position: absolute;
+  bottom: -79px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  line-height: 0;
+  transform: scaleY(-1);
+}
+
+.torn-edge-bottom svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .ceremony-content {
@@ -16,7 +59,9 @@
 
 .ceremony-content h2 {
   margin-bottom: 12px;
-  color: var(--bg-cream);
+  color: var(--maroon-deep);
+  font-family: 'Runethia', cursive;
+  font-size: clamp(2rem, 8vw, 4.5rem);
 }
 
 .details-list {
@@ -24,7 +69,7 @@
   flex-direction: column;
   gap: 16px;
   margin-top: 24px;
-  color: var(--bg-cream);
+  color: var(--text-body);
 }
 
 .details-list p {
@@ -44,7 +89,23 @@
   height: 200px;
   object-fit: cover;
   border-radius: 8px;
-  margin: 16px 0;
+  margin: 24px 0;
   border: 1px solid var(--gold-line);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  filter: grayscale(100%);
+}
+
+.ceremony-floral-fullwidth-container {
+  position: absolute;
+  bottom: -190px;
+  left: -10%;
+  width: 120%;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.ceremony-floral-fullwidth {
+  width: 100%;
+  height: auto;
+  display: block;
 }

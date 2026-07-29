@@ -63,17 +63,16 @@
 .wedding-footer {
   width: 100%;
   max-width: var(--card-max-width, 460px);
-  padding: 20px 16px 40px;
+  padding: 20px 0 0;
   text-align: center;
   position: relative;
   z-index: var(--z-content, 10);
 }
 
-.wedding-footer__text {
-  font-family: var(--font-heading);
-  font-style: normal;
-  font-size: 12px;
-  color: var(--bg-cream);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.wedding-footer__image {
+  width: 100%;
+  max-width: none;
+  height: auto;
+  display: block;
+  margin-top: 80px;
 }

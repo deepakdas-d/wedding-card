@@ -44,21 +44,21 @@ function App() {
         <Countdown />
         
         <div className="card-sequence">
-          <CeremonyDetails />
           <NoteForYou />
         </div>
+        
+        <CeremonyDetails />
 
         <OurStory />
         
+        <FindUs />
+
         <div className="card-sequence">
-          <FindUs />
           <RSVPForm />
         </div>
 
         <footer className="wedding-footer">
-          <p className="wedding-footer__text">
-            Made with love — Shahin Shah & Shahala
-          </p>
+          <img src="/foral-2.png" alt="Floral decoration" className="wedding-footer__image" />
         </footer>
       </main>
     </>

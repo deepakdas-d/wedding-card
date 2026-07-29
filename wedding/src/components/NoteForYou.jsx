@@ -6,7 +6,7 @@ const NoteForYou = () => {
   return (
     <section className="note-section">
       <ArchCard showFlourish={true}>
-        <h2 className="label-text">A NOTE FOR YOU</h2>
+        <h2 className="label-text">A Note for you</h2>
         <div className="diamond-divider"><span className="diamond" /></div>
         
         <p className="note-text body-text">

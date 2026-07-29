@@ -5,6 +5,7 @@
   z-index: 10;
   padding: 40px 16px 60px; /* Padding for the content */
   margin-top: -2px; /* Pull up slightly to ensure no gap with SVG */
+  margin-bottom: 120px;
 }
 
 .torn-edge-bottom {
@@ -35,6 +36,7 @@
 
 .countdown-container h2 {
   margin-bottom: 16px;
+  font-size: clamp(14px, 0.8rem + 0.5vw, 18px);
 }
 
 .countdown-date-wrapper {
@@ -42,17 +44,17 @@
 }
 
 .wedding-day-label {
-  font-family: var(--font-body, serif);
-  font-size: 0.9rem;
-  letter-spacing: 0.15em;
+  font-family: 'Runethia', cursive;
+  font-size: clamp(3.5rem, 8vw, 4.5rem);
   color: var(--text-body);
-  margin-bottom: 6px;
-  text-transform: capitalize;
+  margin-bottom: 24px;
+  line-height: 1.2;
+  font-weight: normal;
 }
 
 .date-display-reference {
   font-family: var(--font-heading, serif);
-  font-size: 2rem;
+  font-size: clamp(3rem, 6vw, 4rem);
   letter-spacing: 0.1em;
   color: var(--maroon-deep);
   line-height: 1.2;
@@ -68,40 +70,42 @@
 .stat-box {
   background-color: rgba(74, 53, 39, 0.05); /* Slight dark tint for boxes on cream bg */
   border-radius: 12px;
-  padding: 12px 4px;
+  padding: 16px 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .stat-box .numeral-text {
   line-height: 1;
-  font-size: clamp(32px, 8vw, 48px);
+  font-size: clamp(38px, 9vw, 56px);
+  font-weight: 700;
   /* Remove white text shadow since it's on light bg */
 }
 
 .stat-box .label-text {
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  opacity: 0.9;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  opacity: 1;
 }
 
 @media (min-width: 500px) {
   .countdown-grid {
-    gap: 16px;
+    gap: 20px;
   }
   .stat-box {
     border-radius: 16px;
-    padding: 16px;
-    gap: 8px;
+    padding: 24px 16px;
+    gap: 12px;
   }
   .stat-box .numeral-text {
-    font-size: clamp(48px, 6vw + 1rem, 64px);
+    font-size: clamp(56px, 7vw + 1rem, 76px);
   }
   .stat-box .label-text {
-    font-size: 0.8rem;
-    letter-spacing: 0.2em;
+    font-size: 0.95rem;
+    letter-spacing: 0.25em;
   }
 }
