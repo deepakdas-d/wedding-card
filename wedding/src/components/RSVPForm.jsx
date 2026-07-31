@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ArchCard from './ArchCard';
 import './rsvpForm.css';
 
 const RSVPForm = () => {
@@ -56,20 +55,20 @@ const RSVPForm = () => {
 
   if (submitted) {
     return (
-      <ArchCard showFlourish={true} className="rsvp-card">
-        <h2 className="label-text">RSVP</h2>
+      <div className="transparent-card rsvp-card">
+        <h2 className="section-heading" style={{ color: 'var(--bg-cream)' }}>RSVP</h2>
         <div className="diamond-divider"><span className="diamond" /></div>
         <div className="thank-you-message">
           <p className="body-text">Thank you for your RSVP!</p>
           <p className="body-text">We can't wait to celebrate with you.</p>
         </div>
-      </ArchCard>
+      </div>
     );
   }
 
   return (
-    <ArchCard showFlourish={true} className="rsvp-card">
-      <h2 className="label-text">RSVP</h2>
+    <div className="transparent-card rsvp-card">
+      <h2 className="section-heading" style={{ color: 'var(--bg-cream)' }}>RSVP</h2>
       <div className="diamond-divider"><span className="diamond" /></div>
       
       <form onSubmit={handleSubmit} className="rsvp-form">
@@ -126,7 +125,7 @@ const RSVPForm = () => {
           {isSubmitting ? 'Sending...' : 'Send RSVP'}
         </button>
       </form>
-    </ArchCard>
+    </div>
   );
 };
 

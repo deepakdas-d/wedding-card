@@ -39,11 +39,11 @@ const HeroSection = ({ showConfetti }) => {
         <div className="couple-names-image">
           <img src="/light-name.png" alt="Couple Names" className="names-img" />
         </div>
-        <p className="with-love-text">With Love</p>
+        <p className="with-love-text">Is Getting Married</p>
       </div>
       
       <div className="floral-footer">
-        <img src="/floral-removebg.png" alt="Floral Arrangement" className="floral-bottom-img" />
+        <img src="/foral-2.png" alt="Floral Arrangement" className="floral-bottom-img" />
       </div>
     </section>
   );

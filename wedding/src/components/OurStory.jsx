@@ -1,13 +1,12 @@
 import React from 'react';
-import ArchCard from './ArchCard';
 import './ourStory.css';
 
 const OurStory = () => {
   return (
     <section className="our-story-section">
       <div className="our-story-container">
-        <ArchCard showFlourish={true} className="our-story-card">
-          <h2 className="label-text">our story</h2>
+        <div className="transparent-card our-story-card">
+          <h2 className="section-heading" style={{ color: 'var(--bg-cream)' }}>Our Story</h2>
           <div className="diamond-divider"><span className="diamond" /></div>
           <p className="body-text italic-quote">
             "Sometimes, the most beautiful journeys begin when you least expect them."
@@ -21,7 +20,11 @@ const OurStory = () => {
           <p className="body-text narrative">
             And now, with grateful hearts, we can't wait to celebrate the next chapter of our journey together—with you by our side. ✨
           </p>
-        </ArchCard>
+        </div>
+      </div>
+
+      <div className="ceremony-floral-fullwidth-container">
+        <img src="/floral-4.png" alt="Floral decoration" className="ceremony-floral-fullwidth" />
       </div>
     </section>
   );

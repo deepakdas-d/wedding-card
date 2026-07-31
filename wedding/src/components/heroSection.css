@@ -5,8 +5,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  /* Push everything towards bottom */
+  justify-content: center;
+  /* Center text vertically */
   position: relative;
   width: 100%;
   background-image: url('/couple.jpeg');
@@ -15,7 +15,7 @@
   /* Push the bottom of the image to the bottom of the screen, which shifts the faces up */
   background-position: center 120%;
   background-repeat: no-repeat;
-  overflow: hidden;
+  z-index: 18;
 }
 
 .hero-background-overlay {
@@ -34,14 +34,14 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  z-index: 2;
+  z-index: 4;
   opacity: 0;
   animation: heroFadeUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   animation-delay: 0.4s;
   padding: 0 20px;
   width: 100%;
-  /* Pull content down closer to floral */
-  margin-bottom: -40px;
+  margin-top: 30vh; /* Pushes the names lower down the screen */
+  margin-bottom: 0;
 }
 
 @keyframes heroFadeUp {
@@ -87,10 +87,11 @@
 .floral-footer {
   width: 100%;
   z-index: 3;
-  position: relative;
+  position: absolute;
+  bottom: -80px;
+  left: 0;
   line-height: 0;
-  margin-bottom: -40px;
-  /* Push flowers lower */
+  pointer-events: none;
 }
 
 .floral-bottom-img {

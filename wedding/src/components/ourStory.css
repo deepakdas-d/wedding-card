@@ -1,10 +1,15 @@
 .our-story-section {
   width: 100%;
   position: relative;
-  z-index: 10;
+  z-index: 20;
   padding: 40px 16px;
   display: flex;
   justify-content: center;
+}
+
+.our-story-section .ceremony-floral-fullwidth-container {
+  bottom: -260px;
+  z-index: 15;
 }
 
 .our-story-container {
@@ -20,7 +25,7 @@
 .our-story-card .label-text {
   margin-bottom: 16px;
   color: var(--bg-cream);
-  font-family: 'Runethia', cursive;
+  font-family: 'Medino', serif;
   font-size: clamp(2rem, 8vw, 4.5rem);
 }
 

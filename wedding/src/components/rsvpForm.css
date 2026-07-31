@@ -6,7 +6,7 @@
 .rsvp-card .label-text {
   margin-bottom: 16px;
   color: var(--bg-cream);
-  font-family: 'Runethia', cursive;
+  font-family: 'Medino', serif;
   font-size: clamp(2rem, 8vw, 4.5rem);
 }
 

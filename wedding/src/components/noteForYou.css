@@ -1,11 +1,13 @@
 .note-section {
   width: 100%;
+  position: relative;
+  z-index: 20;
 }
 
 .note-section h2 {
   margin-bottom: 12px;
   color: var(--bg-cream);
-  font-family: 'Runethia', cursive;
+  font-family: var(--font-cursive);
   font-size: clamp(2rem, 8vw, 4.5rem);
 }
 
@@ -13,4 +15,9 @@
   margin-top: 24px;
   line-height: 1.6;
   color: var(--bg-cream);
+}
+
+.note-section .ceremony-floral-fullwidth-container {
+  bottom: -350px;
+  z-index: 15;
 }

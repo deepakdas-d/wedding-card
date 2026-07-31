@@ -57,7 +57,7 @@
 .find-us-card .label-text {
   margin-bottom: 16px;
   color: var(--maroon-deep);
-  font-family: 'Runethia', cursive;
+  font-family: 'Medino', serif;
   font-size: clamp(2rem, 8vw, 4.5rem);
 }
 
