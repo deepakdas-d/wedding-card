@@ -18,15 +18,15 @@ const CeremonyDetails = () => {
 
           <div className="wedding-date-wrapper">
             <div className="wedding-date-grid">
-              <div className="wedding-date-side">Saturday</div>
+              <div className="wedding-date-side">Sunday</div>
               <div className="wedding-date-center">
-                <span className="wedding-date-day">15</span>
+                <span className="wedding-date-day">16</span>
                 <span className="wedding-date-year">2026</span>
               </div>
               <div className="wedding-date-side">August</div>
             </div>
             <div className="wedding-time-location">
-              at 4:00 PM Onwards
+              at 10:00 AM Onwards
             </div>
           </div>
 
